@@ -6,5 +6,63 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
+  --green: hsl(117, 47%, 75%);
+  --blue: hsl(227, 47%, 75%);
+  --yellow: hsl(52, 100%, 50%);
+}
+
+body {
+  margin: auto;
+  padding: 0;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  min-height: 330px;
+  margin: auto;
+  width: 330px;
+}
+
+#first, #fourth, #seventh{
+  border-right: 4px solid var(--blue);;
+  border-bottom: 4px solid var(--blue);;
+}
+
+#second, #fifth, #eighth {
+  border-right: 4px solid var(--blue);;
+  border-bottom: 4px solid var(--blue);;
+}
+
+#seventh, #eighth {
+  border-bottom: none;
+}
+
+#third, #sixth {
+  border-bottom: 4px solid var(--blue);
+}
+
+.box {
+  background-color: #fff;
+  transition: 0.1s;
+}
+
+.box:hover {
+  background-color: var(--yellow);
+}
+
+.buttonChooser {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 15px;
+  gap: 10px;
+}
+
+.X, .O {
+  border: none;
+  border: var(--yellow) 1px solid;
+  background-color: #fff;
+  min-width: 100px;
+  min-height: 50px;
 }
