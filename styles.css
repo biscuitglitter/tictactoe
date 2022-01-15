@@ -24,21 +24,21 @@ body {
   width: 330px;
 }
 
-#first, #fourth, #seventh{
-  border-right: 4px solid var(--blue);;
-  border-bottom: 4px solid var(--blue);;
+.first, .fourth, .seventh{
+  border-right: 4px solid var(--blue);
+  border-bottom: 4px solid var(--blue);
 }
 
-#second, #fifth, #eighth {
-  border-right: 4px solid var(--blue);;
-  border-bottom: 4px solid var(--blue);;
+.second, .fifth, .eighth {
+  border-right: 4px solid var(--blue);
+  border-bottom: 4px solid var(--blue);
 }
 
-#seventh, #eighth {
+.seventh, .eighth {
   border-bottom: none;
 }
 
-#third, #sixth {
+.third, .sixth {
   border-bottom: 4px solid var(--blue);
 }
 
