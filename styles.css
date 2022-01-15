@@ -51,7 +51,7 @@ body {
   background-color: var(--yellow);
 }
 
-.buttonChooser {
+.buttonChoices {
   display: flex;
   flex-direction: row;
   justify-content: center;

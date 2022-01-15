@@ -1,15 +1,15 @@
 
 
 
-const Gameboard = (function () {
-    let gameBoard = ["x", "o", "x", "o", "x", "o"]
+const Gameboard = (function () { 
+    let gameBoard = ["x", "o", "x", "o", "x", "o", "x", "o", "x"]
     return {
-        gameBoard 
-}
+     gameBoard
+    }
 })();
  
-let c = Gameboard.gameBoard[0]
-console.log()
+
+
 const Player = (name) => {
     const getName = () => name
     return {name, getName}
@@ -21,13 +21,29 @@ const player2 = Player("player2")
 /// first step is to get my Xs and Os to appear on the grid
 
 const displayController = (function () {
-    let playerPlacesMark = function () {
-       
+    let letterX = document.querySelector(".X")
+    let playerTurn 
+    let choosePlayer = function () {
+        letterX.addEventListener("click", () => {
+            console.log("player1 will play with X")
+            playerTurn = player1
+            
+        })
     }
-    return {           
+    let playerMark = function () {
+        document.querySelectorAll(".box").forEach(box =>
+            box.addEventListener("click", (e) => {
+                e.target.innerText = "X"
+            }))
+    }
+    return {          
+        playerMark, choosePlayer, playerTurn
     }
 })();
     
+displayController.choosePlayer()
+displayController.playerMark()
+
 
 const Game = () => {
 
