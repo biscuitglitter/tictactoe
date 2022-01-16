@@ -22,32 +22,34 @@ const player2 = Player("player2")
 
 const displayController = (function () {
     let letterX = document.querySelector(".X")
-    let playerTurn 
+    let playerTurn
     let choosePlayer = function () {
-        letterX.addEventListener("click", () => {
-            console.log("player1 will play with X")
-            playerTurn = player1
-            
+        letterX.addEventListener("click", (e) => {
+            if (e.target.innerText === "X") {
+                playerTurn = player1; console.log(playerTurn);
+            } else playerTurn = player2; console.log(playerTurn);
         })
     }
     let playerMark = function () {
         document.querySelectorAll(".box").forEach(box =>
-            box.addEventListener("click", (e) => {
-                e.target.innerText = "X"
+            box.addEventListener("click", () => {
+                if (player1) {
+                    playerTurn = player1
+                    box.textContent = Gameboard.gameBoard[i]
+                } else {
+                    playerTurn = player2;
+                }
             }))
     }
-    return {          
-        playerMark, choosePlayer, playerTurn
-    }
-})();
+    
+                return {
+                    playerMark, choosePlayer, playerTurn
+                }
+})()
     
 displayController.choosePlayer()
 displayController.playerMark()
 
-
-const Game = () => {
-
-}
 
   
 

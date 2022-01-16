@@ -25,13 +25,13 @@ body {
 }
 
 .first, .fourth, .seventh{
-  border-right: 4px solid var(--blue);
-  border-bottom: 4px solid var(--blue);
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
 }
 
 .second, .fifth, .eighth {
-  border-right: 4px solid var(--blue);
-  border-bottom: 4px solid var(--blue);
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
 }
 
 .seventh, .eighth {
@@ -39,12 +39,21 @@ body {
 }
 
 .third, .sixth {
-  border-bottom: 4px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
 }
 
 .box {
   background-color: #fff;
-  transition: 0.1s;
+  padding: 0;
+  margin: 0;
+  font-size: 12;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-height: 135px;
+  max-width: 135px;
+  line-height: 1;
 }
 
 .box:hover, .X:hover, .O:hover {
