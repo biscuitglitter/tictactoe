@@ -1,56 +1,68 @@
-
-
-
-const Gameboard = (function () { 
-    let gameBoard = ["x", "o", "x", "o", "x", "o", "x", "o", "x"]
-    return {
-     gameBoard
-    }
+const Gameboard = (function () {
+  // module pattern
+  let gameBoard = [];
+  return {
+    gameBoard,
+  };
 })();
- 
 
+const Player = (name) => {  // factory pattern
+  return { name };
+};
 
-const Player = (name) => {
-    const getName = () => name
-    return {name, getName}
-}
+const player1 = Player("player1");
+const player2 = Player("player2");
 
-const player1 = Player("player1")
-const player2 = Player("player2")
-
-/// first step is to get my Xs and Os to appear on the grid
-
-const displayController = (function () {
-    let letterX = document.querySelector(".X")
+const displayControler = (function () {   // module pattern
+    let moves = 0;
+    let count = 0
+    let choice
+    let buttons = document.querySelector(".buttonChoices")
     let playerTurn
-    let choosePlayer = function () {
-        letterX.addEventListener("click", (e) => {
-            if (e.target.innerText === "X") {
-                playerTurn = player1; console.log(playerTurn);
-            } else playerTurn = player2; console.log(playerTurn);
-        })
+    let start = document.querySelector(".start")
+
+    let startGame = function () {
+        start.addEventListener("click", () => {
+            playerChoice()
+            if ()
+        }
+        )
     }
-    let playerMark = function () {
-        document.querySelectorAll(".box").forEach(box =>
-            box.addEventListener("click", () => {
-                if (player1) {
-                    playerTurn = player1
-                    box.textContent = Gameboard.gameBoard[i]
-                } else {
-                    playerTurn = player2;
-                }
+    let playerChoice = function () {
+        buttons.addEventListener("click", (e) => {
+            if (e.target.innerText === "X" && Gameboard.gameBoard.slice(-1) !== "X") {
+                choice = "X"
+                playerTurn = player1
+                Gameboard.gameBoard.push(choice)
+                console.log(Gameboard.gameBoard)
+            } else if (e.target.innerText === "O" && Gameboard.gameBoard.slice(-1) !== "O") {
+                choice = "O"
+                playerTurn = player2
+                Gameboard.gameBoard.push(choice)
+                console.log(Gameboard.gameBoard)
+            }
+        }
+        )
+    }
+    let playerMoves = function () {
+            document.querySelectorAll(".box").forEach(box =>
+                box.addEventListener("click", (e) => {
+                    if (playerTurn = player1) {
+                        box.innerText = choice
+                        console.log(choice)
+                } else if (playerTurn = player2) {
+                    box.innerText = choice
+                }              
             }))
     }
-    
-                return {
-                    playerMark, choosePlayer, playerTurn
-                }
-})()
-    
-displayController.choosePlayer()
-displayController.playerMark()
+  return {
+    moves, count, buttons, playerMoves, startGame
+  };
+})();
 
+displayControler.startGame();
+displayControler.playerMoves();
 
+    
   
-
-
+  
