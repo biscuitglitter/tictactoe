@@ -62,8 +62,9 @@ body {
 
 .buttonChoices {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 15px;
   gap: 10px;
 }
