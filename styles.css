@@ -78,3 +78,8 @@ body {
   text-align: center;
   line-height: 3;
 }
+
+.rednotice {
+  background-color: hsl(8, 89%, 50%, 0.1);
+  pointer-events: none;
+}
