@@ -90,3 +90,8 @@ body {
   width: 110px;
   line-height: 20px;
 }
+
+.win {
+  font-weight: 900;
+  color: blue;
+}

@@ -39,9 +39,7 @@ const displayControler = (function () {
     }))
   }
 
-  function putinsidearray() {
-    
-  }
+ 
 
   function playerMarks() {
     document.querySelectorAll(".box").forEach(elem =>
@@ -50,7 +48,9 @@ const displayControler = (function () {
           if (e.target.innerText == "") {
             e.target.innerText = nextTurn
             Gameboard.gameBoard.push(nextTurn)
+            console.log(Gameboard.gameBoard)
             changeTurn();
+            winningCombos();
           }
         } else if (!nextTurn) {
           document.querySelectorAll(".box").forEach(box => box.classList.add("rednotice"))
@@ -70,9 +70,28 @@ const displayControler = (function () {
   }
 
   function winningCombos() {
-      if (document.getElementById("9").innerText === document.getElementById("3").innerText && document.getElementById("3").innerText === document.getElementById("6").innerText) {
-      console.log("win!!")
+    if (document.getElementById("1") !== "") {
+      if (document.getElementById("1").innerText === document.getElementById("2").innerText && document.getElementById("2").innerText === document.getElementById("3").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("4").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("6").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("7").innerText === document.getElementById("8").innerText && document.getElementById("8").innerText === document.getElementById("9").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("1").innerText === document.getElementById("4").innerText && document.getElementById("4").innerText === document.getElementById("7").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("2").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("8").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("3").innerText === document.getElementById("6").innerText && document.getElementById("6").innerText === document.getElementById("9").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("1").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("9").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
+      } else if (document.getElementById("3").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("7").innerText) {
+        document.querySelector(".choosers").innerText = "you win!"
       }
+    } else {
+        return
+      }
+    
       }
   
    return {
