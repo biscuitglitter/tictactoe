@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   height: 100%;
@@ -16,12 +21,13 @@ body {
   margin: auto;
   padding: 0;
 }
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 110px);
-  min-height: 330px;
+  height: 330px;
   margin: auto;
-  width: 330px;
+  max-width: 330px;
 }
 
 .first, .fourth, .seventh{
@@ -42,27 +48,14 @@ body {
   border-bottom: 2px solid var(--blue);
 }
 
-.box {
-  background-color: #fff;
-  padding: 0;
-  margin: 0;
-  font-size: 12;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  max-height: 135px;
-  max-width: 135px;
-  line-height: 1;
-}
 
 .box:hover, .X:hover, .O:hover {
   background-color: var(--yellow);
 }
 
-.buttonChoices {
+.buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 15px;
@@ -81,4 +74,19 @@ body {
 
 .rednotice {
   pointer-events: none;
+}
+
+
+.box {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  width: 110px;
+  line-height: 20px;
 }

@@ -10,24 +10,34 @@ const Player = (name) => {
   return { name };
 };
 
-const player1 = Player("player1");
-const player2 = Player("player2");
+let click = document.querySelector(".start")
+let input = document.querySelector(".playerName")
+let name = Player.name 
+
+click.addEventListener("click", () => {
+  let name = Player.name 
+  name = input.value
+  console.log(name)
+  const player1 = Player(name)
+  console.log(player1)
+  
+})
+
+
 
 const displayControler = (function () {
-  let moves = 0;
-  let nextTurn
-
+let nextTurn
   function chooseLetter() {
     document.querySelectorAll(".box").forEach(box => box.classList.remove("rednotice"))
-    document.querySelectorAll(".buttonChoices").forEach(button => button.addEventListener("click", (e) => {
+    document.querySelectorAll(".buttons").forEach(button => button.addEventListener("click", (e) => {
       if (e.target.innerText === "X") {
         nextTurn = "X"; 
-        console.log("it got fired!")
       } else if (e.target.innerText === "O") {
         nextTurn = "O"
       }
     }))
   }
+
   function playerMarks() {
     document.querySelectorAll(".box").forEach(elem =>
       elem.addEventListener("click", (e) => {
@@ -46,6 +56,7 @@ const displayControler = (function () {
         }
       }))
   }
+
 
   function changeTurn() {
     if (nextTurn == "X") {
