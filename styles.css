@@ -80,6 +80,5 @@ body {
 }
 
 .rednotice {
-  background-color: hsl(8, 89%, 50%, 0.1);
   pointer-events: none;
 }
