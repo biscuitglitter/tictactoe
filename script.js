@@ -1,6 +1,7 @@
 const Gameboard = (function () {
   // module pattern
   let gameBoard = [];
+
   return {
     gameBoard,
   };
@@ -19,14 +20,14 @@ click.addEventListener("click", () => {
   name = input.value
   console.log(name)
   const player1 = Player(name)
-  console.log(player1)
-  
+  console.log(player1)  
 })
 
 
 
 const displayControler = (function () {
-let nextTurn
+  let nextTurn
+  
   function chooseLetter() {
     document.querySelectorAll(".box").forEach(box => box.classList.remove("rednotice"))
     document.querySelectorAll(".buttons").forEach(button => button.addEventListener("click", (e) => {
@@ -38,15 +39,18 @@ let nextTurn
     }))
   }
 
+  function putinsidearray() {
+    
+  }
+
   function playerMarks() {
     document.querySelectorAll(".box").forEach(elem =>
       elem.addEventListener("click", (e) => {
         if (nextTurn) {
           if (e.target.innerText == "") {
             e.target.innerText = nextTurn
-            changeTurn();
             Gameboard.gameBoard.push(nextTurn)
-            console.log(Gameboard.gameBoard)
+            changeTurn();
           }
         } else if (!nextTurn) {
           document.querySelectorAll(".box").forEach(box => box.classList.add("rednotice"))
@@ -57,7 +61,6 @@ let nextTurn
       }))
   }
 
-
   function changeTurn() {
     if (nextTurn == "X") {
       nextTurn = "O";
@@ -65,9 +68,15 @@ let nextTurn
       nextTurn = "X";
     }
   }
+
+  function winningCombos() {
+      if (document.getElementById("9").innerText === document.getElementById("3").innerText && document.getElementById("3").innerText === document.getElementById("6").innerText) {
+      console.log("win!!")
+      }
+      }
   
-  return {
-    chooseLetter, playerMarks
+   return {
+    chooseLetter, playerMarks, winningCombos
   };
 
 })();
