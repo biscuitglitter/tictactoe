@@ -69,25 +69,23 @@ const displayControler = (function () {
     }
   }
 
-  function winningCombos() {
-    if (document.getElementById("1") !== "") {
-      if (document.getElementById("1").innerText === document.getElementById("2").innerText && document.getElementById("2").innerText === document.getElementById("3").innerText) {
+  function winningCombos() {   
+      if (document.getElementById("1").innerText === document.getElementById("2").innerText && document.getElementById("2").innerText === document.getElementById("3").innerText && document.getElementById("3").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("4").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("6").innerText) {
+      } else if (document.getElementById("4").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("6").innerText && document.getElementById("6").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("7").innerText === document.getElementById("8").innerText && document.getElementById("8").innerText === document.getElementById("9").innerText) {
+      } else if (document.getElementById("7").innerText === document.getElementById("8").innerText && document.getElementById("8").innerText === document.getElementById("9").innerText && document.getElementById("9").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("1").innerText === document.getElementById("4").innerText && document.getElementById("4").innerText === document.getElementById("7").innerText) {
+      } else if (document.getElementById("1").innerText === document.getElementById("4").innerText && document.getElementById("4").innerText === document.getElementById("7").innerText && document.getElementById("7").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("2").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("8").innerText) {
+      } else if (document.getElementById("2").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("8").innerText && document.getElementById("8").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("3").innerText === document.getElementById("6").innerText && document.getElementById("6").innerText === document.getElementById("9").innerText) {
+      } else if (document.getElementById("3").innerText === document.getElementById("6").innerText && document.getElementById("6").innerText === document.getElementById("9").innerText && document.getElementById("9").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("1").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("9").innerText) {
+      } else if (document.getElementById("1").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("9").innerText && document.getElementById("9").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      } else if (document.getElementById("3").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("7").innerText) {
+      } else if (document.getElementById("3").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("7").innerText && document.getElementById("7").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
-      }
     } else {
         return
       }
