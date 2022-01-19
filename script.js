@@ -7,23 +7,10 @@ const Gameboard = (function () {
   };
 })();
 
-const Player = (name) => { 
-  return { name };
-};
-
-let click = document.querySelector(".start")
-let input = document.querySelector(".playerName")
-let name = Player.name 
-
-click.addEventListener("click", () => {
-  let name = Player.name 
-  name = input.value
-  console.log(name)
-  const player1 = Player(name)
-  console.log(player1)  
-})
-
-
+const Player = {
+  name: "",
+  letter: "",
+}
 
 const displayControler = (function () {
   let nextTurn
@@ -32,14 +19,12 @@ const displayControler = (function () {
     document.querySelectorAll(".box").forEach(box => box.classList.remove("rednotice"))
     document.querySelectorAll(".buttons").forEach(button => button.addEventListener("click", (e) => {
       if (e.target.innerText === "X") {
-        nextTurn = "X"; 
+        nextTurn = "X";
       } else if (e.target.innerText === "O") {
         nextTurn = "O"
       }
     }))
   }
-
- 
 
   function playerMarks() {
     document.querySelectorAll(".box").forEach(elem =>
@@ -70,8 +55,9 @@ const displayControler = (function () {
   }
 
   function winningCombos() {   
-      if (document.getElementById("1").innerText === document.getElementById("2").innerText && document.getElementById("2").innerText === document.getElementById("3").innerText && document.getElementById("3").innerText !== "") {
-        document.querySelector(".choosers").innerText = "you win!"
+    if (document.getElementById("1").innerText === document.getElementById("2").innerText && document.getElementById("2").innerText === document.getElementById("3").innerText && document.getElementById("3").innerText !== "") {
+        console.log("WOO!")
+        chooseWinner()
       } else if (document.getElementById("4").innerText === document.getElementById("5").innerText && document.getElementById("5").innerText === document.getElementById("6").innerText && document.getElementById("6").innerText !== "") {
         document.querySelector(".choosers").innerText = "you win!"
       } else if (document.getElementById("7").innerText === document.getElementById("8").innerText && document.getElementById("8").innerText === document.getElementById("9").innerText && document.getElementById("9").innerText !== "") {

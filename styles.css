@@ -53,6 +53,17 @@ body {
   background-color: var(--yellow);
 }
 
+.main_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.choosers {
+  padding: 8px;
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
