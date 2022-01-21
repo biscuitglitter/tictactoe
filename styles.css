@@ -58,10 +58,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
+  padding: 15px;
+  min-height: 80px;
+}
+
+.result {
+  display: 1;
+  min-height: 30px;
 }
 
 .choosers {
   padding: 8px;
+  min-height: 30px;
 }
 
 .buttons {
