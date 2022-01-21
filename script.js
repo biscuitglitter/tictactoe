@@ -7,13 +7,23 @@ const Gameboard = (function () {
   };
 })();
 
-const Player = {
-  name: "",
-  letter: "",
-};
+const Player = (name, letter) => {
+  return { name, letter };
+  };  
+
+const player1 = Player("player one")
+const player2 = Player("player two")
 
 const displayControler = (function () {
   let nextTurn;
+
+  function changeTurn() {
+    if (nextTurn == "X") {
+      nextTurn = "O";
+    } else {
+      nextTurn = "X";
+    }
+  }
 
   function chooseLetter() {
     document
@@ -23,8 +33,14 @@ const displayControler = (function () {
       button.addEventListener("click", (e) => {
         if (e.target.innerText === "X") {
           nextTurn = "X";
+          player1.letter = "X"
+          player2.letter = "O"
+          console.log(player1, player2)
         } else if (e.target.innerText === "O") {
           nextTurn = "O";
+          player1.letter = "O"
+          player2.letter = "X"
+          console.log(player1, player2)
         }
       })
     );
@@ -54,14 +70,6 @@ const displayControler = (function () {
       })
     );
   }
-
-  function changeTurn() {
-    if (nextTurn == "X") {
-      nextTurn = "O";
-    } else {
-      nextTurn = "X";
-    }
-  }
   return {
     chooseLetter,
     playerMarks,
@@ -72,6 +80,7 @@ const displayControler = (function () {
 
 displayControler.chooseLetter();
 displayControler.playerMarks();
+
 
 const Game = (function () {
   let one = document.getElementById("1");
@@ -84,6 +93,8 @@ const Game = (function () {
   let eight = document.getElementById("8");
   let nine = document.getElementById("9");
 
+  letWin = false;
+
   function winningCombos() {
     if (
       one.innerText === two.innerText &&
@@ -92,6 +103,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       four.innerText === five.innerText &&
       five.innerText === six.innerText &&
@@ -99,6 +111,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       seven.innerText === eight.innerText &&
       eight.innerText === nine.innerText &&
@@ -106,6 +119,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       one.innerText === four.innerText &&
       four.innerText === seven.innerText &&
@@ -113,6 +127,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       two.innerText === five.innerText &&
       five.innerText === eight.innerText &&
@@ -120,6 +135,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       three.innerText === six.innerText &&
       six.innerText === nine.innerText &&
@@ -127,6 +143,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       one.innerText === five.innerText &&
       five.innerText === nine.innerText &&
@@ -134,6 +151,7 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else if (
       three.innerText === five.innerText &&
       five.innerText === seven.innerText &&
@@ -141,11 +159,22 @@ const Game = (function () {
     ) {
       document.querySelector(".choosers").innerText = "you win!";
       console.log("you win");
+      letWin = true;
     } else {
       return;
     }
+
+    if (letWin === true) {
+      document.querySelectorAll(".box").forEach((box) => box.classList.add("winCase"))
+    }
+
+
+
+
+
+
   }
   return {
-    winningCombos,
+    winningCombos, letWin
   };
 })();
