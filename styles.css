@@ -2,8 +2,9 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Dongle', sans-serif;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -59,17 +60,12 @@ body {
   align-items: center;
   justify-content: baseline;
   padding: 15px;
-  min-height: 80px;
-}
-
-.result {
-  display: 1;
-  min-height: 30px;
+  min-height: 40px;
 }
 
 .choosers {
   padding: 8px;
-  min-height: 30px;
+  min-height: 25px;
 }
 
 .buttons {

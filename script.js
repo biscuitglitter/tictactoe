@@ -37,12 +37,14 @@ const displayControler = (function () {
           nextTurn = "X";
           player1.letter = "X"
           player2.letter = "O"
-          document.querySelector(".choosers").innerText = "";
+          document.querySelector(".choosers").style.color = "black"
+          document.querySelector(".choosers").innerText = "player one: X player two: O"
         } else if (e.target.innerText === "O") {
           nextTurn = "O";
           player1.letter = "O"
           player2.letter = "X"
-          document.querySelector(".choosers").innerText = "";
+          document.querySelector(".choosers").style.color = "black"
+          document.querySelector(".choosers").innerText = "player one: O player two: X"
         }
       })
     );
@@ -55,7 +57,6 @@ const displayControler = (function () {
           if (e.target.innerText == "") {
             e.target.innerText = nextTurn;
             Gameboard.gameBoard.push(nextTurn);
-            console.log(Gameboard.gameBoard);
             changeTurn();
             Game.winningCombos();
           }
@@ -155,7 +156,7 @@ const Game = (function () {
       letWin = true;
       getWinner()
     } else if (one.innerText !== "" && two.innerText !== "" && three.innerText !== "" && four.innerText !== "" && five.innerText !== "" && six.innerText !== "" && seven.innerText !== "" && eight.innerText !== "" && nine.innerText !== "") {
-      document.querySelector(".result").innerText = "tie..."
+      document.querySelector(".choosers").innerText = "tie..."
     }
   }
 
@@ -165,11 +166,9 @@ const Game = (function () {
 
     function getWinner() {
       if (Gameboard.gameBoard.slice(-1).toString() ===  player1.letter) {
-        console.log("player one wins!")
-        document.querySelector(".result").innerText = "player one wins!"
+        document.querySelector(".choosers").innerText = "player one wins!"
       } else if (Gameboard.gameBoard.slice(-1) === player2.letter) {
-        console.log("player two wins!")
-        document.querySelector(".result").innerText = "player two wins!"
+        document.querySelector(".choosers").innerText = "player two wins!"
     }
     }
   
